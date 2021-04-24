@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log(1);
+    //toggle the lable button
     $('#enc .label').click(function(){
        $(this).parent().find('input').click();
     })
