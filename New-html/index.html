@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>Secured Image Browser </title>
+</head>
+
+<body class="d-flex flex-column min-vh-100 justify-content-center align-items-center bg-dark">
+
+    <div class="container h-150" style = "text-align:center">
+        <h1 style="color: aliceblue;">Welcome to secure image browser application</h1>
+        <h4 style="color: aliceblue;">ITCS461 Computer and Communication Security</h4>
+        <p style="color: aliceblue;">______________________________________________________________________________________________________________________________________</p>
+        <div class="row h-100 justify-content-center align-items-center">
+            
+            <div class="col sm-12 col-md-8 col-lg-6">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">
+                        <div id="file-placeholder">Choose image to encrypt/decrypt</div>
+                    </label>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <label for="inputPassword"></label>
+                        <input type="text" id="inputPassword"
+                            placeholder="Enter a password or generate one (recommended)"
+                            class="form-control mx-sm-6" aria-describedby="passwordHelpInline">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="generateButton"
+                                data-toggle="tooltip" data-placement="right" title="Generate Secure Random Password"><i
+                                    class="fas fa-sync-alt"></i></button>
+                        </div>
+                    </div>
+  
+                </div>
+                <div class="d-flex justify-content-center mb-3" ><button type="button" class="btn btn-primary" id="encryptBtn"><i class="fas fa-lock"></i> Encrypt image</button></div>
+                <div class="d-flex justify-content-center"><button type="button" class="btn btn-success" id="decryptBtn"><i class="fas fa-key"></i> Decrypt image</button></div>
+                <button type="button" class="btn btn-outline-danger" id="resetBtn" style="display: none"><i
+                    class="fas fa-redo"></i> Reset</button>
+                <br>
+                
+                <br>
+
+                <br>
+                <br>
+
+                <div id="error"></div>
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+        <br>
+        <br>
+
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-8 col-lg-6" id="results">
+
+
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+
+    </div><!-- end container -->
+    <br>
+
+    <!-- bundled app file js -->
+    <script src="bundle.js"></script>
+
+
+</body>
+
+</html>
