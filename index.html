@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <title>Secured Image Browser </title>
+</head>
+
+<body>
+
+    <div class="container h-150" style = "text-align:center">
+        <h2 class="display-4 title" >Secured Image Browser <h4>ITCS461 | Computer and Communication Security<br><br></h4></h2>
+        <div class="row h-100 justify-content-center align-items-center">
+            
+            <div class="col sm-12 col-md-8 col-lg-6">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">
+                        <div id="file-placeholder">Choose a file to encrypt/decrypt</div>
+                    </label>
+                </div>
+
+                <br>
+                <br>
+
+                <button type="button" class="btn btn-outline-dark" id="encryptBtn">Encrypt</button>
+                <button type="button" class="btn btn-outline-dark" id="decryptBtn">Decrypt</button>
+                <button type="button" class="btn btn-outline-danger" id="resetBtn" style="display: none"><i
+                        class="fas fa-redo"></i> Reset</button>
+                <br>
+                <br>
+
+                <br>
+                <br>
+
+                <div id="error"></div>
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+        <br>
+        <br>
+
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-8 col-lg-6" id="results">
+
+
+
+            </div>
+            <!--end col-->
+        </div><!-- end row -->
+
+    </div><!-- end container -->
+    <br>
+
+    <div class="loader">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <!-- bundled app file js -->
+    <script src="bundle.js"></script>
+
+
+</body>
+
+</html>
