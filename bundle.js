@@ -19893,7 +19893,7 @@
 
 		//declarations
 		const DEC = {
-			signature: "RW5jcnlwdGVkIFVzaW5nIEhhdC5zaA", //add a line in the file that says "encrypted by Hat.sh :)"
+			signature: "RW5jcnlwdGVkIFVzaW5nIEhhdC5zaA",
 			hash: "SHA-512",
 			algoName1: "PBKDF2",
 			algoName2: "AES-GCM",
@@ -20170,12 +20170,16 @@
 
 						async function deriveDecryptionSecretKey() { //derive the secret key from a master key.
 							let intKey = new Uint8Array(fr.result.slice(0, 24));
-							console.log(intKey);
 							let stringKey = "";
 							intKey.forEach(x => {
-								stringKey = stringKey + String.fromCharCode(x)
+								if (x >= 33 && x <= 126) {
+									stringKey = stringKey + String.fromCharCode(x)
+								} else {
+									$(".loader").css("display", "none");
+									throw errorMsg("The file hasn't encrypted by this website!") 
+								}
 							});
-							let getSecretKey = await importSecretKey(window.atob(stringKey));
+							let getSecretKey = await importSecretKey(window.atob(stringKey))
 
 							return window.crypto.subtle.deriveKey({
 									name: DEC.algoName1,
@@ -20193,25 +20197,25 @@
 								false, //whether the derived key is extractable 
 								DEC.perms2 //limited to the options encrypt and decrypt
 							)
+
+
+
 							//console.log the key
-							// .then(function(key){
+							//.then(function(key){
 							//     //returns the derived key
 							//     console.log(key);
-							// })
-							// .catch(function(err){
+							//})
+							//.catch(function(err){
 							//     console.error(err);
-							// });
+							//});
 
 						}
 
 
 						console.log(new Uint8Array(fr.result.slice(40, 56)));
 						const derivedKey = await deriveDecryptionSecretKey(); //requiring the key
-						console.log(derivedKey);
 						const iv = new Uint8Array(fr.result.slice(24, 40)); //take out encryption iv
-						console.log(iv);
 						const content = new Uint8Array(fr.result.slice(56)); //take out encrypted content
-						console.log(content);
 						await window.crypto.subtle.decrypt({
 								iv,
 								name: DEC.algoName2
@@ -20224,7 +20228,7 @@
 								resetInputs(); // reset file and key inputs when done
 							})
 							.catch(function () {
-								errorMsg("You have entered a wrong Decryption Key!");
+								errorMsg("An error occured while Decrypting the file, try again!");
 							});
 
 						$(".loader").css("display", "none"); //hide spinner
